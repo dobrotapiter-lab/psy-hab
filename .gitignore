@@ -1,9 +1,0 @@
-node_modules
-dist
-out
-.astro
-.vite
-.env
-.env.*
-*.log
-.DS_Store
