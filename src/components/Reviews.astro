@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+const reviews = [
+  { name: "Марина Светлова", role: "CEO, IT-компания «ТехноСфера»", avatar: "/media/avatar-1.webp", text: "Евгений помог мне выйти из затяжного выгорания и найти баланс между карьерой и личной жизнью." },
+  { name: "Дмитрий Королёв", role: "Предприниматель, инвестор", avatar: "/media/avatar-2.webp", text: "После сессий с Евгением я стал принимать более взвешенные решения в бизнесе." },
+  { name: "Екатерина Белова", role: "Основательница маркетингового агентства", avatar: "/media/avatar-3.webp", text: "Благодаря Евгению я наконец поняла причины своих страхов и ограничений." },
+  { name: "Алексей Петров", role: "Руководитель проектов", avatar: "/media/avatar-4.webp", text: "Пришёл к Евгению в кризисе после развода. За полгода работы восстановил эмоциональное равновесие." },
+  { name: "Ольга Никитина", role: "Психотерапевт, частная практика", avatar: "/media/avatar-5.webp", text: "Как коллега, могу подтвердить высокий профессионализм Евгения. Рекомендую всем своим клиентам." }
+];
+---
+&lt;section id="reviews" class="py-24 relative overflow-hidden"&gt;
+  &lt;div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"&gt;&lt;/div&gt;
+  &lt;div class="relative z-10 max-w-6xl mx-auto px-6"&gt;
+    &lt;div class="text-center mb-16"&gt;&lt;h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"&gt;Что говорят &lt;span class="gradient-text"&gt;клиенты&lt;/span&gt;&lt;/h2&gt;&lt;p class="text-lg text-text-muted max-w-2xl mx-auto"&gt;Истории людей, которые прошли путь трансформации&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+      {reviews.map((review, index) =&gt; (
+        &lt;div class={`group relative p-6 rounded-2xl glass border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 ${index === 4 ? 'md:col-span-2 lg:col-span-1 lg:col-start-2' : ''}`}&gt;
+          &lt;div class="absolute top-4 right-4 text-primary/20"&gt;&lt;Icon name="lucide:quote" class="w-12 h-12"/&gt;&lt;/div&gt;
+          &lt;div class="flex gap-1 mb-4"&gt;{[...Array(5)].map(() =&gt; (&lt;Icon name="lucide:star" class="w-5 h-5 text-amber-400 fill-amber-400"/&gt;))}&lt;/div&gt;
+          &lt;p class="text-text-muted mb-6 leading-relaxed relative z-10"&gt;"{review.text}"&lt;/p&gt;
+          &lt;div class="flex items-center gap-4"&gt;
+            &lt;div class="relative"&gt;&lt;div class="w-14 h-14 rounded-full overflow-hidden ring-2 ring-primary/30"&gt;&lt;img src={review.avatar} alt={review.name} class="w-full h-full object-cover"/&gt;&lt;/div&gt;&lt;div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center"&gt;&lt;Icon name="lucide:check" class="w-3 h-3 text-white"/&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;p class="font-semibold text-white"&gt;{review.name}&lt;/p&gt;&lt;p class="text-sm text-text-muted"&gt;{review.role}&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
